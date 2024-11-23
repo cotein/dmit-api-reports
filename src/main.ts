@@ -29,7 +29,12 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   app.enableCors({
-    origin: ['http://localhost:5173', 'https://tudominio.com'], // Permitir solo estos orígenes
+    origin: [
+      'http://localhost:5173',
+      'https://www.dmit.ar',
+      'https://dmit.ar',
+      'https://api.dmit.ar',
+    ], // Permitir solo estos orígenes
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
     allowedHeaders: ['Content-Type', 'Authorization'], // Cabeceras permitidas
     credentials: true,
