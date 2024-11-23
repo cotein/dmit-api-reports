@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  dmit_reports_db:
+    image: postgres:14.3
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    container_name: dmit_reports_db
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - dmit_reports
+
+  dmit_reports_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.reports
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_HOST: dmit_reports_db
+      DATABASE_PORT: ${DB_PORT}
+      DATABASE_USER: ${DB_USERNAME}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      DATABASE_NAME: ${POSTGRES_DB}
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: dmit_reports_app
+    depends_on:
+      - dmit_reports_db
+    networks:
+      - dmit_reports
+
+networks:
+  dmit_reports:

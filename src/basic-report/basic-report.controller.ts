@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Res } from '@nestjs/common';
 import { BasicReportService } from './basic-report.service';
 import { Response } from 'express';
 import { PrinterService } from 'src/printer/printer.service';
@@ -42,5 +42,10 @@ export class BasicReportController {
     const pdf = this.printerService.createPdf(docDefinition);
 
     this.sendPdfResponse(res, pdf, pdfName);
+  }
+
+  @Get('test')
+  www(@Res() res: Response) {
+    res.send('Hello World!');
   }
 }
