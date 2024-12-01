@@ -1,0 +1,6 @@
+postgres-data
+node_modules
+certs
+nginx
+.git/
+dist

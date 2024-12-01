@@ -1,8 +1,8 @@
 {
-  "name": "teslo-shop",
+  "name": "dmit-api-reports",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Servidor que implementa la API REST para el sistema de reportes de DMIT",
+  "author": "Diego Barrueta",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

@@ -3,9 +3,18 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as bodyParser from 'body-parser';
+import * as fs from 'fs';
+import * as path from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const httpsOptions = {
+    key: fs.readFileSync(path.join(__dirname, '..', 'certs', 'server.key')),
+    cert: fs.readFileSync(path.join(__dirname, '..', 'certs', 'server.cert')),
+  };
+
+  const app = await NestFactory.create(AppModule, {
+    httpsOptions,
+  });
 
   app.use(bodyParser.json({ limit: '5mb' }));
   app.use(bodyParser.urlencoded({ extended: true }));
