@@ -5,7 +5,7 @@ services:
     image: postgres:14
     restart: always
     ports:
-      - 5431:5432
+      - 5432:5432
     environment:
       - POSTGRES_DB=reports
       - POSTGRES_USER=reports_user
@@ -15,23 +15,24 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
     networks:
       - dmit_reports_network
-  #dmit_reports_app:
-  #  build:
-  #    context: .
-  #    dockerfile: Dockerfile.reports
-  #  env_file:
-  #    - ./.env
-  #  ports:
-  #    - "3000:3000"
-  #  volumes:
-  #    - ./:/usr/src/app
-  #  container_name: dmit_reports_app
-  #  expose:
-  #    - "3000"
-  #  depends_on:
-  #    - dmit_reports_db
-  #  networks:
-  #    - dmit_reports_network
+
+  dmit_reports_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.reports
+    env_file:
+      - ./.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
+    container_name: dmit_reports_app
+    expose:
+      - "3000"
+    depends_on:
+      - dmit_reports_db
+    networks:
+      - dmit_reports_network
   #dmit_reports_nginx:
   #  image: nginx:latest
   #  container_name: dmit_reports_nginx
