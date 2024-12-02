@@ -1,8 +1,8 @@
 # Use the official Node.js image as the base image
 FROM node:20
 
-# Instala @nestjs/cli globalmente
-RUN npm install -g @nestjs/cli
+# Instala nano y bash
+RUN apt-get update && apt-get install -y nano bash
 
 # Create a directory to hold the application code inside the image
 RUN mkdir -p /usr/src/app
