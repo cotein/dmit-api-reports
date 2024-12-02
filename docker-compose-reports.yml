@@ -26,6 +26,7 @@ services:
       - "3000:3000"
     volumes:
       - ./:/usr/src/app
+      - ./certs:/usr/src/app/certs
     container_name: dmit_reports_app
     expose:
       - "3000"
