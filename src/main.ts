@@ -20,12 +20,12 @@ async function bootstrap() {
     };
   }
 
-  if (process.env.ENVIRONMENT === 'development') {
+  /* if (process.env.ENVIRONMENT === 'development') {
     httpsOptions = {
       key: fs.readFileSync(path.join(__dirname, '..', 'certs', 'server.key')),
       cert: fs.readFileSync(path.join(__dirname, '..', 'certs', 'server.cert')),
     };
-  }
+  } */
 
   const app = await NestFactory.create(AppModule, {
     httpsOptions,
