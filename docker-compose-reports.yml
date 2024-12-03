@@ -24,6 +24,9 @@ services:
       - ./.env
     ports:
       - "3000:3000"
+    volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt/
+      - ./certs:/usr/src/app/certs
     container_name: dmit_reports_app
     expose:
       - "3000"
