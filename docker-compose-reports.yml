@@ -14,7 +14,7 @@ services:
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     networks:
-      - dmit_reports_network
+      - dmit_network
 
   dmit_reports_app:
     build:
@@ -26,19 +26,8 @@ services:
     depends_on:
       - dmit_reports_db
     networks:
-      - dmit_reports_network
-  #dmit_reports_nginx:
-  #  image: nginx:latest
-  #  container_name: dmit_reports_nginx
-  #  ports:
-  #    - "8888:80"
-  #    - "4444:443"
-  #  volumes:
-  #    - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
-  #  depends_on:
-  #    - dmit_reports_app
-  #  networks:
-  #    - dmit_reports_network
+      - dmit_network
 
 networks:
-  dmit_reports_network:
+  dmit_network:
+    external: true
