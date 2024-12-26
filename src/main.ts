@@ -48,6 +48,7 @@ async function bootstrap() {
     .setDescription('Documentation for the dmit reports API')
     .setVersion('1.0')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
 
   SwaggerModule.setup('api', app, document);
@@ -58,6 +59,7 @@ async function bootstrap() {
       'https://www.dmit.ar',
       'https://dmit.ar',
       'https://api.dmit.ar',
+      'https://facturador.dmit.ar',
     ], // Permitir solo estos orígenes
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
     allowedHeaders: ['Content-Type', 'Authorization'], // Cabeceras permitidas
