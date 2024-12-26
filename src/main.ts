@@ -3,13 +3,13 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as bodyParser from 'body-parser';
-import * as fs from 'fs';
-import * as path from 'path';
+/* import * as fs from 'fs';
+import * as path from 'path'; */
 
 async function bootstrap() {
-  let httpsOptions = null;
+  //const httpsOptions = null;
 
-  if (process.env.ENVIRONMENT === 'production') {
+  /* if (process.env.ENVIRONMENT === 'production') {
     httpsOptions = {
       key: fs.readFileSync(
         '/etc/letsencrypt/live/api.reports.dmit.ar/privkey.pem',
@@ -18,7 +18,7 @@ async function bootstrap() {
         '/etc/letsencrypt/live/api.reports.dmit.ar/fullchain.pem',
       ),
     };
-  }
+  } */
 
   /* if (process.env.ENVIRONMENT === 'development') {
     httpsOptions = {
@@ -27,9 +27,7 @@ async function bootstrap() {
     };
   } */
 
-  const app = await NestFactory.create(AppModule, {
-    httpsOptions,
-  });
+  const app = await NestFactory.create(AppModule);
 
   app.use(bodyParser.json({ limit: '5mb' }));
   app.use(bodyParser.urlencoded({ extended: true }));

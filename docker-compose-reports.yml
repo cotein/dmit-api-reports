@@ -20,8 +20,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.reports
-    env_file:
-      - ./.env
     container_name: dmit_reports_app
     depends_on:
       - dmit_reports_db
