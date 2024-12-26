@@ -22,11 +22,7 @@ services:
       dockerfile: Dockerfile.reports
     env_file:
       - ./.env
-    ports:
-      - "3000:3000"
     container_name: dmit_reports_app
-    expose:
-      - "3000"
     depends_on:
       - dmit_reports_db
     networks:
