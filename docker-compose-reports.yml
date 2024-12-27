@@ -21,6 +21,8 @@ services:
       context: .
       dockerfile: Dockerfile.reports
     container_name: dmit_reports_app
+    ports:
+      - "3002:3000"
     networks:
       - dmit_network
 
