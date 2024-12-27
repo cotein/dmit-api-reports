@@ -16,7 +16,7 @@ import { PrinterModule } from './printer/printer.module';
     ConfigModule.forRoot(),
 
     // TypeOrmModule.forRoot() configura la conexión a la base de datos PostgreSQL.
-    TypeOrmModule.forRoot({
+    /* TypeOrmModule.forRoot({
       type: 'postgres', // Tipo de base de datos.
       host: process.env.DB_HOST, // Host de la base de datos.
       port: parseInt(process.env.DB_PORT, 10), // Puerto de la base de datos.
@@ -25,20 +25,20 @@ import { PrinterModule } from './printer/printer.module';
       password: process.env.POSTGRES_PASSWORD, // Contraseña de la base de datos.
       autoLoadEntities: true, // Carga automáticamente las entidades.
       synchronize: true, // Sincroniza automáticamente las entidades con la base de datos.
-    }),
+    }), */
     // Importa el módulo de productos.
-    ProductsModule,
+    //ProductsModule,
 
     // Importa el módulo común.
-    CommonModule,
+    //CommonModule,
 
     // Importa el módulo de archivos.
-    FilesModule,
+    //FilesModule,
 
     // Importa el módulo de autenticación.
-    AuthModule,
+    //AuthModule,
 
-    MessagesWebSocketModule,
+    //MessagesWebSocketModule,
 
     BasicReportModule,
 

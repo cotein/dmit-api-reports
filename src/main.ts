@@ -3,30 +3,8 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as bodyParser from 'body-parser';
-/* import * as fs from 'fs';
-import * as path from 'path'; */
 
 async function bootstrap() {
-  //const httpsOptions = null;
-
-  /* if (process.env.ENVIRONMENT === 'production') {
-    httpsOptions = {
-      key: fs.readFileSync(
-        '/etc/letsencrypt/live/api.reports.dmit.ar/privkey.pem',
-      ),
-      cert: fs.readFileSync(
-        '/etc/letsencrypt/live/api.reports.dmit.ar/fullchain.pem',
-      ),
-    };
-  } */
-
-  /* if (process.env.ENVIRONMENT === 'development') {
-    httpsOptions = {
-      key: fs.readFileSync(path.join(__dirname, '..', 'certs', 'server.key')),
-      cert: fs.readFileSync(path.join(__dirname, '..', 'certs', 'server.cert')),
-    };
-  } */
-
   const app = await NestFactory.create(AppModule);
 
   app.use(bodyParser.json({ limit: '5mb' }));
