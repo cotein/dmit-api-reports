@@ -39,7 +39,10 @@ async function bootstrap() {
       'https://www.facturador.dmit.ar',
     ], // Permitir solo estos orígenes
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos HTTP permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'], // Cabeceras permitidas
+    allowedHeaders: [
+      'Origin, X-Requested-With, Content-Type, Accept',
+      'Authorization',
+    ], // Cabeceras permitidas
     credentials: true,
     // Permitir credenciales (cookies, etc.)
   });
