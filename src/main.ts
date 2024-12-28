@@ -29,7 +29,8 @@ async function bootstrap() {
 
   SwaggerModule.setup('api', app, document);
 
-  app.enableCors({
+  app.enableCors();
+  /* app.enableCors({
     origin: [
       'http://localhost:5173',
       'https://www.dmit.ar',
@@ -45,7 +46,7 @@ async function bootstrap() {
     ], // Cabeceras permitidas
     credentials: true,
     // Permitir credenciales (cookies, etc.)
-  });
+  }); */
   await app.listen(3000);
 }
 bootstrap();
