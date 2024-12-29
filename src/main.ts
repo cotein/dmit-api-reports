@@ -5,7 +5,9 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as bodyParser from 'body-parser';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  });
 
   app.use(bodyParser.json({ limit: '5mb' }));
   app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,7 +31,7 @@ async function bootstrap() {
 
   SwaggerModule.setup('api', app, document);
 
-  app.enableCors();
+  //app.enableCors();
   /* app.enableCors({
     origin: [
       'http://localhost:5173',
