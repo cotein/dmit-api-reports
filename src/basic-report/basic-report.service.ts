@@ -11,7 +11,7 @@ export class BasicReportService {
 
   receipt(
     printeableData: PrinteableReceiptData,
-    logo: string,
+    logo: string | null,
   ): TDocumentDefinitions {
     const { name, phone1, address, phone2, email, webSite } =
       printeableData.company;

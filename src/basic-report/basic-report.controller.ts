@@ -34,7 +34,7 @@ export class BasicReportController {
 
     const resizedLogoBase64 = await resizeBase64Image(base64Data, 150, 100); */
 
-    let base64Data = '';
+    let base64Data = null;
 
     if (logo_base64) {
       base64Data = prepareImage(logo_base64);
@@ -42,7 +42,7 @@ export class BasicReportController {
 
     const resizedLogoBase64 = base64Data
       ? await resizeBase64Image(base64Data, 150, 100)
-      : '';
+      : null;
 
     const docDefinition = this.basicReportService.receipt(
       printeableData,
