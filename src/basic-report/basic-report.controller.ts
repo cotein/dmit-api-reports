@@ -30,9 +30,19 @@ export class BasicReportController {
 
     const { pdfName } = printeableData;
 
-    const base64Data = prepareImage(logo_base64);
+    /* const base64Data = prepareImage(logo_base64);
 
-    const resizedLogoBase64 = await resizeBase64Image(base64Data, 150, 100);
+    const resizedLogoBase64 = await resizeBase64Image(base64Data, 150, 100); */
+
+    let base64Data = '';
+
+    if (logo_base64) {
+      base64Data = prepareImage(logo_base64);
+    }
+
+    const resizedLogoBase64 = base64Data
+      ? await resizeBase64Image(base64Data, 150, 100)
+      : '';
 
     const docDefinition = this.basicReportService.receipt(
       printeableData,
