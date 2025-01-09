@@ -14,6 +14,10 @@ export const headerSection = (
 
   const content: Content[] = [];
 
+  const logoColumn = logo_base64
+    ? { image: logo_base64, width: 150, height: 100 }
+    : {};
+
   if (name) {
     content.push(
       { text: 'Nombre: ', bold: true, fontSize: 7 },
@@ -71,12 +75,7 @@ export const headerSection = (
           {
             //border: [false, false, false, true],
             columns: [
-              {
-                // auto-sized columns have their widths based on their content
-                image: logo_base64 ? logo_base64 : '',
-                width: 150,
-                height: 100,
-              },
+              logoColumn,
               {
                 columns: [
                   {
